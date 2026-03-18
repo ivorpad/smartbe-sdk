@@ -1,0 +1,31 @@
+{
+  "name": "@smartbe/secrets",
+  "version": "0.1.0",
+  "description": "SmartBe Secrets SDK — resolve secrets from the SmartBe control plane",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smartbe-io/sdk.git",
+    "directory": "node"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
