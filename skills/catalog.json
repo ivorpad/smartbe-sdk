@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "nano-banana-pro",
+    "name": "Nano Banana Pro",
+    "description": "Generate/edit images with Gemini 3 Pro Image. Text-to-image + image-to-image; 1K/2K/4K resolution.",
+    "runtime": "python",
+    "secrets": ["GEMINI_API_KEY"],
+    "icon": "image",
+    "tags": ["ai", "image-generation"]
+  }
+]
