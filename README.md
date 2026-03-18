@@ -6,9 +6,10 @@ Libraries and CLI for resolving secrets from the SmartBe control plane inside sa
 
 | Component | Language | Install |
 |-----------|----------|---------|
-| [CLI](cli/) | Bash | Pre-installed in sandbox |
-| [Python SDK](python/) | Python 3.9+ | `pip install smartbe-secrets` |
-| [Node SDK](node/) | Node 18+ / Bun | `npm install @smartbe/secrets` |
+| [CLI](cli/) | Bash | Pre-installed on server |
+| [Python SDK](python/) | Python 3.9+ | Pre-installed on server |
+| [Node SDK](node/) | Node 18+ / Bun | Pre-installed on server |
+| [Skills](skills/) | Any | One-click install via MC |
 
 ## Quick Start
 
@@ -39,6 +40,16 @@ The SDK reads a config file mounted into the sandbox at `/opt/openclaw/.control-
 1. In-memory cache (process lifetime)
 2. Control plane API
 3. Environment variable fallback (for local dev / non-SmartBe environments)
+
+## Skills
+
+Curated skills live in the `skills/` directory. Each skill has:
+- `SKILL.md` — description, required secrets, runtime
+- `run` — wrapper script that resolves secrets via `smartbe-secret` CLI, then runs the skill
+- `scripts/` — the actual skill code (untouched from upstream)
+
+Available skills:
+- **[nano-banana-pro](skills/nano-banana-pro/)** — Image generation/editing with Gemini 3 Pro Image
 
 ## Configuration
 
