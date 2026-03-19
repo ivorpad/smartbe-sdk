@@ -8,6 +8,15 @@
       "secrets": ["GEMINI_API_KEY"],
       "icon": "image",
       "tags": ["ai", "image-generation"]
+    },
+    {
+      "slug": "skill-installer",
+      "name": "Skill Installer",
+      "description": "Fetch, audit, and install skills from GitHub, skills.sh, or any URL. Converts credentials to SmartBe SDK.",
+      "runtime": "python",
+      "secrets": [],
+      "icon": "package",
+      "tags": ["meta", "tools", "installer"]
     }
   ]
 }
