@@ -14,16 +14,20 @@ Usage:
 """
 
 import argparse
-import os
 import sys
 from pathlib import Path
 
+from smartbe_secrets import secret
+
 
 def get_api_key(provided_key: str | None) -> str | None:
-    """Get API key from argument first, then environment."""
+    """Get API key from argument, then SmartBe control plane, then env."""
     if provided_key:
         return provided_key
-    return os.environ.get("GEMINI_API_KEY")
+    try:
+        return secret("GEMINI_API_KEY")
+    except KeyError:
+        return None
 
 
 def main():
@@ -61,9 +65,7 @@ def main():
     api_key = get_api_key(args.api_key)
     if not api_key:
         print("Error: No API key provided.", file=sys.stderr)
-        print("Please either:", file=sys.stderr)
-        print("  1. Provide --api-key argument", file=sys.stderr)
-        print("  2. Set GEMINI_API_KEY environment variable", file=sys.stderr)
+        print("Set GEMINI_API_KEY in Mission Control > Integrations", file=sys.stderr)
         sys.exit(1)
 
     # Import here after checking API key to avoid slow import on error
