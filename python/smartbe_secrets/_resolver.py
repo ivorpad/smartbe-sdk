@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Optional
 
 _CONFIG_PATH = os.environ.get(
-    "SMARTBE_CONFIG_PATH", "/opt/openclaw/.control-plane-secrets.env"
+    "SMARTBE_CONFIG_PATH", "/opt/openclaw/.openclaw/.control-plane-secrets.env"
 )
 
 _cache: dict[str, str] = {}
@@ -33,7 +33,7 @@ def _load_config() -> dict[str, str]:
             continue
         eq = line.find("=")
         if eq > 0:
-            cfg[line[:eq].strip()] = line[eq + 1 :].strip()
+            cfg[line[:eq].strip()] = line[eq + 1 :].strip().strip("'\"")
 
     _config = cfg
     return _config
