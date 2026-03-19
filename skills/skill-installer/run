@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
+export PYTHONPATH="${PYTHONPATH:-}:/usr/lib/python3/dist-packages"
+exec uv run "${SKILL_DIR}/scripts/installer.py" "$@"
